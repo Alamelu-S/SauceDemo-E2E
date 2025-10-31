@@ -1,0 +1,13 @@
+{
+  // This file tells VS Code how to understand our Cypress project
+  // - Enables auto-suggestions (IntelliSense) for Cypress commands like cy.get(), cy.visit(), etc.
+  // - Adds type-checking for JavaScript files (warns about typos or wrong arguments)
+  // - Applies to all JS files inside this folder and its subfolders
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "checkJs": true,
+    "types": ["cypress"]
+  },
+  "include": ["**/*.js"]
+}
