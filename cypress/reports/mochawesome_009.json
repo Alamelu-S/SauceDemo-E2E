@@ -1,0 +1,125 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 1,
+    "failures": -1,
+    "start": "2025-12-20T15:48:50.519Z",
+    "end": "2025-12-20T15:48:50.607Z",
+    "duration": 88,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 50,
+    "other": 1,
+    "hasOther": true,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0b0f278e-029d-4f8a-9d3a-15a498c9447d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\interceptexample.spec.js",
+      "file": "cypress\\e2e\\interceptexample.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "39b1b65a-5896-4372-be59-e619c15d1767",
+          "title": "API Spy Example",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should spy on GET /posts/1 request",
+              "fullTitle": "API Spy Example should spy on GET /posts/1 request",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "// Intercept the GET request and give it an alias\ncy.intercept('GET', 'https://jsonplaceholder.typicode.com/posts/1').as('getPost');\n// Trigger the request via UI or directly\ncy.visit('https://jsonplaceholder.typicode.com/posts/1'); // it will return JSON so will get error \n// Wait for the request to complete and validate\ncy.wait('@getPost').then(interception => {\n  console.log(interception); // check full request/response in browser console\n  expect(interception.response.statusCode).to.eq(200);\n  expect(interception.response.body).to.have.property('id', 1);\n});",
+              "err": {},
+              "uuid": "fd17d855-1d84-4662-bf37-3f2abe49d36d",
+              "parentUUID": "39b1b65a-5896-4372-be59-e619c15d1767",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should GET /posts/1 using cy.request",
+              "fullTitle": "API Spy Example should GET /posts/1 using cy.request",
+              "timedOut": null,
+              "duration": 73,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Intercept the GET request\ncy.intercept('GET', 'https://jsonplaceholder.typicode.com/posts/1').as('getPost');\n// Send GET request directly (no cy.visit)\ncy.request('GET', 'https://jsonplaceholder.typicode.com/posts/1').then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('id', 1);\n});",
+              "err": {},
+              "uuid": "ef707cb5-e8f9-4881-aa4d-a73ed70c452d",
+              "parentUUID": "39b1b65a-5896-4372-be59-e619c15d1767",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ef707cb5-e8f9-4881-aa4d-a73ed70c452d"
+          ],
+          "failures": [],
+          "pending": [
+            "fd17d855-1d84-4662-bf37-3f2abe49d36d"
+          ],
+          "skipped": [],
+          "duration": 73,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

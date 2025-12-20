@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-20T15:52:23.203Z",
+    "end": "2025-12-20T15:52:23.384Z",
+    "duration": 181,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ad48e11b-2f35-4ad8-a836-e25ec700492a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\apifixturesexamples.spec.js",
+      "file": "cypress\\e2e\\apifixturesexamples.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ce393c59-249d-43da-b9d9-a4324b31dc4b",
+          "title": "API using Fixtures",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "POST using Fixture",
+              "fullTitle": "API using Fixtures POST using Fixture",
+              "timedOut": null,
+              "duration": 150,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('createpostpayload').then(payload => {\n  // cy.request('POST','https://jsonplaceholder.typicode.com/posts',payload)\n  cy.request('POST', `${Cypress.env('apiBaseUrl')}/posts`, payload).then(response => {\n    expect(response.status).to.eq(201);\n    expect(response.body.title).to.eq(payload.title);\n  });\n});",
+              "err": {},
+              "uuid": "863224d1-617e-4679-921d-fce63644c5bb",
+              "parentUUID": "ce393c59-249d-43da-b9d9-a4324b31dc4b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "863224d1-617e-4679-921d-fce63644c5bb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 150,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

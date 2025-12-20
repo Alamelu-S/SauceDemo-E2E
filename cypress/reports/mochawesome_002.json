@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-20T15:48:29.266Z",
+    "end": "2025-12-20T15:48:30.637Z",
+    "duration": 1371,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "fd6cd2c5-ba60-4e58-8f0c-1f79e9d13852",
+      "title": "",
+      "fullFile": "cypress\\e2e\\apicrud.spec.js",
+      "file": "cypress\\e2e\\apicrud.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6bc2b3ac-84b5-4def-843d-63ec1b652344",
+          "title": "FakeStore API CRUD Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "GET - Fetch a single product",
+              "fullTitle": "FakeStore API CRUD Tests GET - Fetch a single product",
+              "timedOut": null,
+              "duration": 506,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('GET', 'https://fakestoreapi.com/products/1').then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.be.an('object');\n  expect(response.body).to.have.property('id', 1);\n  expect(response.body).to.have.property('title');\n  cy.log(`Fetched product: ${response.body.title}`);\n});",
+              "err": {},
+              "uuid": "92de9804-fd46-4ef2-973d-8fd67e2ad635",
+              "parentUUID": "6bc2b3ac-84b5-4def-843d-63ec1b652344",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "POST - Create a new user",
+              "fullTitle": "FakeStore API CRUD Tests POST - Create a new user",
+              "timedOut": null,
+              "duration": 381,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('POST', 'https://fakestoreapi.com/users', {\n  email: 'john@example.com',\n  username: 'john123',\n  password: 'secret123',\n  name: {\n    firstname: 'John',\n    lastname: 'Doe'\n  },\n  address: {\n    city: 'San Francisco',\n    street: 'Market St',\n    number: 123,\n    zipcode: '94103'\n  },\n  phone: '123-456-7890'\n}).then(response => {\n  // API might return 200 or 201\n  expect([200, 201]).to.include(response.status);\n  expect(response.body).to.have.property('id');\n  userId = response.body.id;\n  cy.log(`User created with ID: ${userId}`);\n});",
+              "err": {},
+              "uuid": "62ba8314-2927-4817-92f6-d3b82ccf149a",
+              "parentUUID": "6bc2b3ac-84b5-4def-843d-63ec1b652344",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "PUT - Update the created user",
+              "fullTitle": "FakeStore API CRUD Tests PUT - Update the created user",
+              "timedOut": null,
+              "duration": 159,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('PUT', `https://fakestoreapi.com/users/${userId}`, {\n  email: 'john_updated@example.com',\n  username: 'john_updated',\n  name: {\n    firstname: 'John',\n    lastname: 'Updated'\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('email', 'john_updated@example.com');\n  cy.log(`Updated user ID: ${userId}`);\n});",
+              "err": {},
+              "uuid": "9a3c8d9e-84ee-483a-afdb-7903db75f32f",
+              "parentUUID": "6bc2b3ac-84b5-4def-843d-63ec1b652344",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "DELETE - Delete the created user",
+              "fullTitle": "FakeStore API CRUD Tests DELETE - Delete the created user",
+              "timedOut": null,
+              "duration": 254,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('DELETE', `https://fakestoreapi.com/users/${userId}`).then(response => {\n  expect(response.status).to.eq(200);\n  cy.log(`Deleted user ID: ${userId}`);\n});",
+              "err": {},
+              "uuid": "6c7b8740-2079-4e59-bee5-5b1b39d9fe17",
+              "parentUUID": "6bc2b3ac-84b5-4def-843d-63ec1b652344",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "92de9804-fd46-4ef2-973d-8fd67e2ad635",
+            "62ba8314-2927-4817-92f6-d3b82ccf149a",
+            "9a3c8d9e-84ee-483a-afdb-7903db75f32f",
+            "6c7b8740-2079-4e59-bee5-5b1b39d9fe17"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1300,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

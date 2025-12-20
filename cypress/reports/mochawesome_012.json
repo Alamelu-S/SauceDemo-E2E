@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-20T15:49:00.498Z",
+    "end": "2025-12-20T15:49:00.922Z",
+    "duration": 424,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "18c77a97-9b97-410a-b5c1-60deacd0d546",
+      "title": "",
+      "fullFile": "cypress\\e2e\\simpleReportTest.spec.js",
+      "file": "cypress\\e2e\\simpleReportTest.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "128be177-6709-4455-abb1-739884cfb887",
+          "title": "Simple Cypress Report Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "UI-Login Page Load Test",
+              "fullTitle": "Simple Cypress Report Test UI-Login Page Load Test",
+              "timedOut": null,
+              "duration": 322,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/'); //It will take base url remaining\ncy.get('[data-test=\"login-button\"]').should('be.visible');",
+              "err": {},
+              "uuid": "d53af556-5c3d-4021-a068-0da74afd11e7",
+              "parentUUID": "128be177-6709-4455-abb1-739884cfb887",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "API -Get Test",
+              "fullTitle": "Simple Cypress Report Test API -Get Test",
+              "timedOut": null,
+              "duration": 51,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request(`${Cypress.env('apiBaseUrl')}/posts/1`).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('id', 1);\n});",
+              "err": {},
+              "uuid": "d719ec2c-0b19-482a-9e14-0f48f49dac82",
+              "parentUUID": "128be177-6709-4455-abb1-739884cfb887",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d53af556-5c3d-4021-a068-0da74afd11e7",
+            "d719ec2c-0b19-482a-9e14-0f48f49dac82"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 373,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

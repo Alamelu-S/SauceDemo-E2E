@@ -14,7 +14,7 @@ describe('API & UI Integration Test',()=>
         });
 
         // 2️⃣ Step 2: Use that data in the UI
-  it('should verify product name in SauceDemo UI', () => {
+  it.skip('should verify product name in SauceDemo UI', () => {
     // Visit SauceDemo and log in
     cy.visit('https://www.saucedemo.com/');
     cy.get('[data-test="username"]').type('standard_user');

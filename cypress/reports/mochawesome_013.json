@@ -1,0 +1,182 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 4,
+    "failures": -4,
+    "start": "2025-12-20T15:49:03.249Z",
+    "end": "2025-12-20T15:49:06.564Z",
+    "duration": 3315,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 80,
+    "other": 4,
+    "hasOther": true,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9048d347-2209-4a44-a9b9-42133e2298c0",
+      "title": "",
+      "fullFile": "cypress\\e2e\\uibasicsexamples.spec.js",
+      "file": "cypress\\e2e\\uibasicsexamples.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "dcb48844-45ff-4e17-9efd-ed9614f044c4",
+          "title": "UI Basics Workouts",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Visit Page and Assertion Test",
+              "fullTitle": "UI Basics Workouts Visit Page and Assertion Test",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "cy.visit('https://www.saucedemo.com/');\ncy.url().should('include', 'saucedemo');\ncy.get('#user-name').should('be.visible');\ncy.get('#password').should('be.visible');\ncy.get('#login-button').should('be.enabled');",
+              "err": {},
+              "uuid": "d170980e-b48f-4c74-8a12-503cefe5703e",
+              "parentUUID": "dcb48844-45ff-4e17-9efd-ed9614f044c4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Enter valid Credentials to login",
+              "fullTitle": "UI Basics Workouts Enter valid Credentials to login",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "cy.visit('https://www.saucedemo.com/');\ncy.get('#user-name').type('standard_user');\ncy.get('#password').type('secret_sauce');\ncy.get('#login-button').click();\ncy.url().should('include', 'inventory.html');\ncy.get('.title').should('contain', 'Products');",
+              "err": {},
+              "uuid": "7cdbbb85-6cd7-4e0f-9cac-00367e52e6d0",
+              "parentUUID": "dcb48844-45ff-4e17-9efd-ed9614f044c4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Chekboxes and Radio Button Test",
+              "fullTitle": "UI Basics Workouts Chekboxes and Radio Button Test",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "cy.visit('https://www.tutorialspoint.com/selenium/practice/check-box.php');\ncy.get('#c_bs_1').check().should('be.checked');\ncy.get('#c_bs_1').uncheck().should('not.be.checked');\n//Radio Buttons\ncy.visit('https://www.tutorialspoint.com/selenium/practice/radio-button.php');\n//By type = radio and name and giving value \n//cy.get('input[type=\"radio\"][name=\"tab\"]').check('igotthree').should('be.checked');\n//OR below also works\n//cy.get('input[type=\"radio\"][value=\"igottwo\"]').check().should('be.checked');\n//OR by index (if u dont the value)\ncy.get('input[name=\"tab\"]').eq(1).check(); // selects second radio",
+              "err": {},
+              "uuid": "c42b1c2e-d052-4fdd-af73-18209454db35",
+              "parentUUID": "dcb48844-45ff-4e17-9efd-ed9614f044c4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Dropdown and Select Test",
+              "fullTitle": "UI Basics Workouts Dropdown and Select Test",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "cy.visit('https://www.tutorialspoint.com/selenium/practice/select-menu.php');\ncy.get('#inputGroupSelect03').select('Ms.');\ncy.get('#inputGroupSelect03').should('have.value', '3');\n//OR checking by text\n//cy.get('#inputGroupSelect03 option:selected')\n//.should('have.text', 'Ms.');",
+              "err": {},
+              "uuid": "0bc50ea1-53b1-401a-a612-ad2e99ef60ca",
+              "parentUUID": "dcb48844-45ff-4e17-9efd-ed9614f044c4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Alert and Confirm Test",
+              "fullTitle": "UI Basics Workouts Alert and Confirm Test",
+              "timedOut": null,
+              "duration": 1075,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.tutorialspoint.com/selenium/practice/alerts.php');\n//simple alert\ncy.on('window:alert', text => {\n  expect(text).to.eq('Hello world!');\n}); //this should be always before alert click\ncy.get('button[onclick=\"showAlert()\"]').click();\n//alert appear after 5 seconds \n/*cy.get('button[onclick=\"myMessage()\"]').click();\n\ncy.on('window:alert',(textClickMe)=>{\nexpect(textClickMe).to.eq('Hello just appeared');\n})*/\n//Confirm Ok and Cancel\ncy.get('button[onclick=\"myDesk()\"]').click();\ncy.on('window:confirm', confirmText => {\n  expect(confirmText).to.eq('Press a button!');\n  return true;\n});\n//cy.on('window:confirm',()=> false);\n//Prompt alert\n/*\ncy.get('button[onclick=\"myPrompt()\"]').click();\ncy.window().then((win) => {\n    cy.stub(win, 'prompt').returns('Cypress User');\n  });\n\n  \n\n  cy.get('#promptdemo')\n    .should('contain.text', 'Cypress User');\n\n}) */",
+              "err": {},
+              "uuid": "39f8305f-75fc-4d4b-a484-87ecfbf21021",
+              "parentUUID": "dcb48844-45ff-4e17-9efd-ed9614f044c4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "39f8305f-75fc-4d4b-a484-87ecfbf21021"
+          ],
+          "failures": [],
+          "pending": [
+            "d170980e-b48f-4c74-8a12-503cefe5703e",
+            "7cdbbb85-6cd7-4e0f-9cac-00367e52e6d0",
+            "c42b1c2e-d052-4fdd-af73-18209454db35",
+            "0bc50ea1-53b1-401a-a612-ad2e99ef60ca"
+          ],
+          "skipped": [],
+          "duration": 1075,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

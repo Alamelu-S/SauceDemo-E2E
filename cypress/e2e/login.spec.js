@@ -17,4 +17,22 @@ describe('Login Test', () => {
     })
   })
 
+  //Fail Testcase : Login Failed
+  it.skip('Invalid Login Data', () => 
+    {
+      cy.get('[data-test=username]').type('admin')
+      cy.get('[data-test=password]').type('admin')
+      cy.get('[data-test=login-button]').click()
+
+      // verification: user should remain on login page
+      cy.url().should('include', 'saucedemo.com')
+
+      // verification: error message is displayed
+      cy.get('[data-test=error]')
+      .should('be.visible')
+      .and('contain.text', 'Username and password do not match any user in this service')
+
+      cy.reload();// it will clear the wrong data and reload the page 
+    })
+  
 })

@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-20T15:48:21.589Z",
+    "end": "2025-12-20T15:48:24.183Z",
+    "duration": 2594,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b0930f1f-1fb8-44ca-a2b4-1eb60b364646",
+      "title": "",
+      "fullFile": "cypress\\e2e\\addproductstocart.spec.js",
+      "file": "cypress\\e2e\\addproductstocart.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b6348b36-de62-47c2-8b2a-099796cccc27",
+          "title": "Dynamically Add Products to Cart",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add multiple products to cart dynamically",
+              "fullTitle": "Dynamically Add Products to Cart Add multiple products to cart dynamically",
+              "timedOut": null,
+              "duration": 2537,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//load products from fixtures\ncy.fixture('products').then(data => {\n  const productsItem = data.items;\n  //add each product to cart\n  productsItem.forEach(product => {\n    cy.get(`[data-test=${product.id}]`).click();\n  });\n  // Verify cart badge shows correct number of items\n  cy.get('[data-test=shopping-cart-badge]').should('contain', productsItem.length);\n  // Open cart\n  cy.get('.shopping_cart_link').click();\n  // Verify each product is visible in the cart\n  productsItem.forEach(product => {\n    cy.contains('.inventory_item_name', product.name).should('be.visible');\n  });\n});",
+              "err": {},
+              "uuid": "22200ff4-7841-4413-a8f3-b544aa97f243",
+              "parentUUID": "b6348b36-de62-47c2-8b2a-099796cccc27",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "22200ff4-7841-4413-a8f3-b544aa97f243"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2537,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

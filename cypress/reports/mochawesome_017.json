@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-20T15:52:20.489Z",
+    "end": "2025-12-20T15:52:21.485Z",
+    "duration": 996,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8c863465-c527-463a-a0d1-456a346503a5",
+      "title": "",
+      "fullFile": "cypress\\e2e\\apiexamples.spec.js",
+      "file": "cypress\\e2e\\apiexamples.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4d46eb77-f5fe-405d-a30d-6e477d015870",
+          "title": "API Testing Examples",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "GET Products",
+              "fullTitle": "API Testing Examples GET Products",
+              "timedOut": null,
+              "duration": 191,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('GET', 'https://fakestoreapi.com/products/1').then(response => {\n  expect(response.status).eq(200);\n  cy.log(JSON.stringify(response.body));\n  expect(response.body).to.have.property('id', 1);\n  expect(response.body).to.have.property('title');\n  expect(response.body).to.be.an('object');\n  //expect(response.body).to.have.length.greaterThan(0);\n});",
+              "err": {},
+              "uuid": "f36d0a79-f235-4407-841d-877f06fdacf5",
+              "parentUUID": "4d46eb77-f5fe-405d-a30d-6e477d015870",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "POST Create new user",
+              "fullTitle": "API Testing Examples POST Create new user",
+              "timedOut": null,
+              "duration": 330,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('POST', 'https://fakestoreapi.com/users', {\n  email: 'john@example.com',\n  username: 'john123',\n  password: 'secret123',\n  name: {\n    firstname: 'John',\n    lastname: 'Doe'\n  }\n}).then(response => {\n  // Some responses return 200, others 201\n  expect([200, 201]).to.include(response.status);\n  expect(response.body).to.have.property('id');\n  userId = response.body.id;\n  cy.log(`User created ID:${userId}`);\n});",
+              "err": {},
+              "uuid": "7d815971-96aa-4a58-ab53-50fd6d0501aa",
+              "parentUUID": "4d46eb77-f5fe-405d-a30d-6e477d015870",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "PUT Update user",
+              "fullTitle": "API Testing Examples PUT Update user",
+              "timedOut": null,
+              "duration": 157,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('PUT', `https://fakestoreapi.com/users/${userId}`, {\n  email: 'john_updated@example.com',\n  username: 'john_updated',\n  password: 'newpass123'\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('email', 'john_updated@example.com');\n  cy.log(`User updated with ID: ${userId}`);\n});",
+              "err": {},
+              "uuid": "1c30b3d4-24b2-449a-bd44-99bada3dcefd",
+              "parentUUID": "4d46eb77-f5fe-405d-a30d-6e477d015870",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "DELETE - Delete the created user",
+              "fullTitle": "API Testing Examples DELETE - Delete the created user",
+              "timedOut": null,
+              "duration": 253,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('DELETE', `https://fakestoreapi.com/users/${userId}`).then(response => {\n  expect(response.status).to.eq(200);\n  cy.log(`User deleted with ID: ${userId}`);\n});",
+              "err": {},
+              "uuid": "a43b4b20-3943-471d-8e28-5cecccb90181",
+              "parentUUID": "4d46eb77-f5fe-405d-a30d-6e477d015870",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f36d0a79-f235-4407-841d-877f06fdacf5",
+            "7d815971-96aa-4a58-ab53-50fd6d0501aa",
+            "1c30b3d4-24b2-449a-bd44-99bada3dcefd",
+            "a43b4b20-3943-471d-8e28-5cecccb90181"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 931,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

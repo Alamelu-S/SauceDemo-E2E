@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-12-20T15:48:40.138Z",
+    "end": "2025-12-20T15:48:41.731Z",
+    "duration": 1593,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d42623c2-c769-459b-b6c5-1a98530f765f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\apiuiintegration.spec.js",
+      "file": "cypress\\e2e\\apiuiintegration.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7a038f32-8bc4-4fcf-950b-9aa1b0243e77",
+          "title": "API & UI Integration Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should verify product name in SauceDemo UI",
+              "fullTitle": "API & UI Integration Test should verify product name in SauceDemo UI",
+              "timedOut": null,
+              "duration": 1571,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Visit SauceDemo and log in\ncy.visit('https://www.saucedemo.com/');\ncy.get('[data-test=\"username\"]').type('standard_user');\ncy.get('[data-test=\"password\"]').type('secret_sauce');\ncy.get('[data-test=\"login-button\"]').click();\n// 3️⃣ Step 3: Verify product names are visible\ncy.get('.inventory_item_name').should('be.visible');\n// 4️⃣ Step 4: Check if any product name includes part of the API product name\ncy.get('.inventory_item_name').then($els => {\n  const uiNames = [...$els].map(el => el.innerText.toLowerCase());\n  const apiNameLower = apiProductName.toLowerCase().split(' ')[0]; // use first word for loose match\n  const matchFound = uiNames.some(name => name.includes(apiNameLower));\n  cy.log(`Checking if API product \"${apiProductName}\" matches any UI name`);\n  expect(matchFound, `API product \"${apiProductName}\" should appear in UI`).to.be.true;\n});",
+              "err": {
+                "message": "AssertionError: API product \"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops\" should appear in UI: expected false to be true",
+                "estack": "AssertionError: API product \"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops\" should appear in UI: expected false to be true\n    at Object.proxyGetter [as get] (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:80711:22)\n    at Context.eval (webpack://cypressecommerce/./cypress/e2e/apiuiintegration.spec.js:34:86)\n    at getRet (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:122243:20)\n    at tryCatcher (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:4285:29)",
+                "diff": null
+              },
+              "uuid": "fe1cec6a-7d3f-46e2-a3d7-dd889c94e7f3",
+              "parentUUID": "7a038f32-8bc4-4fcf-950b-9aa1b0243e77",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "fe1cec6a-7d3f-46e2-a3d7-dd889c94e7f3"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1571,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
